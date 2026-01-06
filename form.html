@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ears.4U - Anonymous Chat</title>
+<style>
+    /* Pastel, professional theme */
+    body {
+        font-family: 'Arial', sans-serif;
+        background: #fff9f3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        min-height: 100vh;
+    }
+
+    .container {
+        background: #ffeeda;
+        padding: 30px 25px;
+        border-radius: 15px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        max-width: 400px;
+        width: 100%;
+    }
+
+    h2 {
+        text-align: center;
+        color: #6b3e26;
+        margin-bottom: 15px;
+    }
+
+    p.welcome {
+        font-size: 14px;
+        color: #4a2f1d;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #6b3e26;
+        font-weight: bold;
+    }
+
+    input, select, textarea, button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    button {
+        background-color: #6b3e26;
+        color: white;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background-color: #57311f;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Ears.4U 💛</h2>
+    <p class="welcome">
+        Welcome! 💛<br>
+        This is a safe, anonymous space to be heard. I’m here to listen and support — not a therapist. <br>
+        You can use any nickname. You can stop anytime. <br>
+        I will schedule a short chat based on your preferred time.
+    </p>
+
+    <form id="earsForm" onsubmit="submitForm(event)">
+        <label for="nickname">Nickname (required)</label>
+        <input type="text" id="nickname" name="nickname" required placeholder="Your nickname">
+
+        <label for="age">Age Group (required)</label>
+        <select id="age" name="age" required>
+            <option value="">Select your age group</option>
+            <option value="<18">Under 18</option>
+            <option value="18-25">18-25</option>
+            <option value="25+">25+</option>
+        </select>
+
+        <label for="reason">Reason for talking (required)</label>
+        <select id="reason" name="reason" required>
+            <option value="">Select reason</option>
+            <option value="Loneliness">Loneliness</option>
+            <option value="Stress / Anxiety">Stress / Anxiety</option>
+            <option value="Sadness">Sadness</option>
+            <option value="Other">Other (please specify below)</option>
+        </select>
+
+        <label for="otherReason">Other Reason (optional)</label>
+        <input type="text" id="otherReason" name="otherReason" placeholder="If not mentioned above">
+
+        <label for="time">Preferred Time to Chat (required)</label>
+        <input type="text" id="time" name="time" required placeholder="E.g., Today 7 PM">
+
+        <button type="submit">Get Chat Link</button>
+    </form>
+</div>
+
+<script>
+function submitForm(event) {
+    event.preventDefault();
+
+    // You can capture the form values here
+    const nickname = document.getElementById('nickname').value;
+    const age = document.getElementById('age').value;
+    const reason = document.getElementById('reason').value;
+    const otherReason = document.getElementById('otherReason').value;
+    const time = document.getElementById('time').value;
+
+    // Simple alert before redirect
+    alert(`Thank you, ${nickname}! You will be redirected to Telegram.`);
+
+    // Redirect to Telegram chat
+    window.location.href = "https://t.me/Ears4U_Chat";
+
+    // Optional: Send data to Google Sheets here
+    // Using Google Forms / Google Apps Script
+}
+</script>
+
+</body>
+</html>
